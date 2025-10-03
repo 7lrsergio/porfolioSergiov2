@@ -11,6 +11,9 @@
   <script src="script2.js" defer></script>
   <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
   <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script> 
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bruno+Ace+SC&family=Goldman:wght@400;700&family=Michroma&family=Share+Tech&display=swap" rel="stylesheet">
 
   <section class="project-section">
  
@@ -29,53 +32,31 @@
           </div>
           <div class="socials-container">
             <ion-icon
-              id="instagram-icon"
               name="logo-instagram"
               class="socials"
-              data-cursor=" contact me">
+              data-cursor="  contact me">
             </ion-icon>
-          
+      
             <ion-icon
-              id="github-icon"
               name="logo-github"
               class="socials"
-              data-cursor=" contact me">
+              data-cursor="  contact me">
             </ion-icon>
-          
+      
             <ion-icon
-              id="linkedin-icon"
               name="logo-linkedin"
               class="socials"
-              data-cursor=" contact me">
+              data-cursor="  contact me">
             </ion-icon>
-          
+      
             <ion-icon
-              id="email-icon"
               name="mail-unread-outline"
               class="socials"
-              data-cursor=" contact me">
+              data-cursor="  contact me">
             </ion-icon>
           </div>
-          
 
-          <script>
-            document.getElementById("instagram-icon").onclick = () => {
-              window.open("https://www.instagram.com/7lrsergio?igsh=MXU1dXltMDJsaGo4aQ==", "_blank");
-            };
-          
-            document.getElementById("github-icon").onclick = () => {
-              window.open("https://github.com/7lrsergio", "_blank");
-            };
-          
-            document.getElementById("linkedin-icon").onclick = () => {
-              window.open("https://www.linkedin.com/feed/", "_blank");
-            };
-          
-            document.getElementById("email-icon").onclick = () => {
-              window.location.href = "mailto:evrn03@gmail.com";
-            };
-          </script>
-          
+
       
       
         </div>
@@ -105,19 +86,10 @@
       <img src="./icons/python.png" class="icon" alt="Python">
     </div>
   
-    <div class="icon-wrapper" data-label="Java"
-    data-cursor="i've worked with">
-      <img src="./icons/java.png" class="icon" alt="Java">
-    </div>
   
     <div class="icon-wrapper" data-label="C++"
     data-cursor="i've worked with">
       <img src="./icons/c- .png" class="icon" alt="C++">
-    </div>
-  
-    <div class="icon-wrapper" data-label="TypeScript"
-    data-cursor="i've worked with">
-      <img src="./icons/typescript (1).png" class="icon" alt="TypeScript">
     </div>
   
   </div>
@@ -127,7 +99,7 @@
   <!-- 1 | Shared preview panel (stays on screen, JS swaps its content) -->  
 
 <!-- 2 | All project cards -->
-<section class="cards-wrapper">
+<div class="cards-wrapper">
 
 
 
@@ -141,52 +113,58 @@
    </aside>
 
 
-  <!-- Battleship -->
-  <div class="project-card"
-       data-title="Battleship Game"
-       data-desc ="The goal with thisproject was to work on fundamentals, something I care deeply about"
-       data-tools="C++ • STL • Linux"
-       data-video="./img/battleship.mp4">
-    <h3>Battleship</h3>
-  </div>
+   <div class="project-card"
+   data-title="SLANDS"
+   data-desc ="I’ve teamed up with classmates to launch a startup that builds websites and software for local businesses. Our goal is to apply our skills to create real impact while gaining hands-on experience and helping cover our college expenses."
+   data-tools="Goal: support to local businesses, and getting experience through building real life projects that have a positive impact in our community"
+   data-video="./img/slands.mp4">
+ <h3>SLANDS</h3>
+ </div>
 
-  <!-- Weather App -->
-  <div class="project-card"
-       data-title="Weather App"
-       data-desc ="React + Express frontend hooking OpenWeather & ChatGPT."
-       data-tools="React • Express • Vite • OpenWeather API"
-       data-video="./videos/weatherapp-preview.mp4">
-    <h3>WeatherApp</h3>
-  </div>
 
-  <!-- HowFar (Great‑Circle distance calc) -->
-  <div class="project-card"
-       data-title="HowFar"
-       data-desc ="Class assignment that calculates great‑circle distances."
-       data-tools="C++ • <cmath> • File I/O"
-       data-video="./videos/howfar-demo.mp4">
-    <h3>HowFar</h3>
-  </div>
+    <!-- Weather App -->
+    <div class="project-card"
+    data-title="Weather App (Debugging)"
+    data-desc ="Project of my own, its just for learning, and to help me have a better system routine, I broke it, trying to fix it at the moment"
+    data-tools="Goal: work and learn about API’s which lead to a lot of learning on backend/front-end and the connection between both. A project that help me understand more"
+    data-video="./img/wheaterapp.mp4">
+ <h3>WeatherApp</h3>
+</div>
+ 
+   <!-- Battleship -->
+   <div class="project-card"
+        data-title="Battleship Game"
+        data-desc="Projects like my Battleship game and antiderivative solver started as homework but grew into a deeper understanding of the subjects by coding their logic. They showed me how essential it is to truly grasp a concept when translating it into code."
+        data-tools ="My goal with this project and college in general is to build strong fundamentals, that allow me to really know my stuff, and theres more to come"
+        data-video="./img/battleship.mp4">
+     <div class="doubleProject">
+       <h3 class="doublePtext">Battleship +</h3>
+       <h3 class="doublePtext">Antiderivative</h3>
+     </div>
+   </div>
 
-  <!-- FoodTruck POS -->
-  <div class="project-card"
-       data-title="FoodTruck POS"
-       data-desc ="Mobile‑first kiosk with live menu + Stripe payouts."
-       data-tools="React Native • Express • PostgreSQL • Stripe API"
-       data-video="./videos/foodtruck-demo.mp4">
-    <h3>FoodTruck</h3>
-  </div>
+ 
+ 
+   <!-- Placeholder / Coming soon -->
+   <div class="project-card"
+   data-title="BOSS/Business Opportunity software search"
+   data-desc="Software that searches and filters recently sold homes to filter properties most likely to need remodeling. It helps local service businesses (e.g., roofing) target high-intent leads right after a purchase."
+   data-tools="Goal: an example of the data-driven tools I’m building with SLANDS to deliver real value to local businesses. "
+   data-video="./img/boss.mp4";>
 
-  <!-- Placeholder / Coming soon -->
-  <div class="project-card"
-       data-title="More coming soon..."
-       data-desc ="New portfolio pieces in the works—stay tuned!"
-       data-tools="—"
-       data-video="">
-    <h3>More coming soon…</h3>
-  </div>
+     <h3>Next Project</h3>
+   </div>
 
-</section>
+   <div class="project-card"
+   data-title="More Projects Coming Soon"
+   data-desc="I’m always building and experimenting. New projects are in progress and will be added here shortly."
+   data-tools="Stay tuned for fresh updates and demos"
+   data-video="./img/more.mp4">
+
+     <h3>More coming soon…</h3>
+   </div>
+
+  </div>
 
 
 
@@ -288,7 +266,7 @@
 
 
       <h1 class="text" data-id="engineers"><span class="reveal">
-        I may still be early in my journey, but I’m fully committed to learning, contributing, and improving every day. I value feedback, collaboration, and working with people who raise the bar. My goal is to earn trust through consistency, effort, and continuous growth.
+        I am still be early in my journey, but I’m fully committed to learning, contributing, and improving every day. I value feedback, collaboration, and working with people who raise the bar. My goal is to earn trust through consistency, effort, and continuous growth.
       </span></h1>
           <h1 class="text" data-id="engineers"><span class="reveal"> 
             Right now, learning is my top priority, but I also want to bring value to the team wherever I can. I’m not afraid of hard work, and I’m here to put in the time, take initiative, and grow into someone others can count on. I want to learn from those around me, add to the team in any way possible, and help build something we can all be proud of.
@@ -296,10 +274,10 @@
 
 
       <h1 class="text" data-id="recruiters"><span class="reveal">
-        I am committed to becoming great at mobile app development and become an expert in building secure and scalable applications. I have dedicated my time outside of work and school into learning through project creation and understanding the basics of networking and cybersecurity.
+        I am committed to be great at mobile app development and become an expert in building secure and scalable applications. I have dedicated my time outside of work and school into learning through project creation and understanding the basics of networking and cybersecurity.
       </span></h1> 
         <h1 class="text" data-id="recruiters"><span class="reveal">
-          I’m aware of the major shifts happening in this industry especially with AI and how competitive opportunities are. However, I didn’t sign up for this career because I thought it was going to be easy. I will do anything to not let down those who are rooting for me. 
+          I’m aware of the major shifts happening in this industry specially with AI and how competitive opportunities are. However, I didn’t sign up for this career because I thought it was going to be easy. I will do anything to not let down those who are rooting for me. 
         </span></h1>
         <h1 class="text" data-id="recruiters"><span class="reveal">
           +find myself amazed the ways AI can help you have a second brain to discuss and optimize.
@@ -307,7 +285,7 @@
 
       
       <h1 class="text" data-id="design-directors"><span class="reveal">
-        I am curious and I want to learn. Above all, I want the team to win and will do my best to make that happen. I never thought of myself as someone with natural talent, but I am someone who makes up for this with hard work and dedication. </span></h1>
+        I may have not  done much of this type of work, but I am curious and I want to learn. Above all, I want the team to win and will do my best to make that happen. I never thought of myself as someone with natural talent, but I am someone who makes up for this with hard work and dedication. </span></h1>
       <h1 class="text" data-id="design-directors"><span class="reveal">Over time, human behavior has become something I dive into during my downtime, It's become the lens I see design through: not just how things look, but how they make people feel, decide, and act.</span></h1>
       
       
@@ -341,7 +319,7 @@
       </div>
 
 
-        <p>Carried 10-12 credit hours while working 33 hrs/week and making time for side projects.</p>
+        <p>Carried 10-12 credit hours while working 33 hrs/week and amking time for sides projects.</p>
         <p class="skills-list">Forever grateful for the opportunity to earn an education in one of the best education systems, in one of the best countries, and to study something I find myself passionate about.  This is some of what I have learned</p>
         <div class="skills-container-small">
          <div class="text-wrap">
