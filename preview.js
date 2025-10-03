@@ -1,68 +1,88 @@
-/* ----------  script2.js  ---------- */
+
 document.addEventListener('DOMContentLoaded', () => {
-    /* refs */
-    const panel    = document.getElementById('preview');
-    const closeBtn = document.getElementById('closePreview');
-    const vid      = document.getElementById('prevVid');
-    const titleEl  = document.getElementById('prevTitle');
-    const descEl   = document.getElementById('prevDesc');
-    const toolsEl  = document.getElementById('prevTools');
-  
-    /* helper → true when viewport is wide enough for hover UI */
-    const wideEnough = () => window.matchMedia('(min-width: 768px)').matches;
-  
-    /* helpers to show / hide panel */
-    function show(card) {
-      titleEl.textContent = card.dataset.title  || '';
-      descEl .textContent = card.dataset.desc   || '';
-      toolsEl.textContent = card.dataset.tools  || '';
-  
-      if (card.dataset.video) {
-        if (vid.src !== card.dataset.video) {
-          vid.src = card.dataset.video;
-          vid.load();
-        }
-        vid.style.display = 'block';
-        vid.play().catch(() => {});
-      } else {
-        vid.pause();
-        vid.style.display = 'none';
+  const panel    = document.getElementById('preview');
+  const closeBtn = document.getElementById('closePreview');
+  const vid      = document.getElementById('prevVid');
+  const titleEl  = document.getElementById('prevTitle');
+  const descEl   = document.getElementById('prevDesc');
+  const toolsEl  = document.getElementById('prevTools');
+
+  const mediaQuery = window.matchMedia('(min-width: 1024px)');
+
+  function isWide() {
+    return mediaQuery.matches;
+  }
+
+  function elementsOverlap(el1, el2) {
+    const domRect1 = el1.getBoundingClientRect();
+    const domRect2 = el2.getBoundingClientRect();
+    return !(
+      domRect1.top    > domRect2.bottom ||
+      domRect1.right  < domRect2.left   ||
+      domRect1.bottom < domRect2.top    ||
+      domRect1.left   > domRect2.right
+    );
+  }
+
+  function show(card) {
+    titleEl.textContent = card.dataset.title  || '';
+    descEl .textContent = card.dataset.desc   || '';
+    toolsEl.textContent = card.dataset.tools  || '';
+
+    const vidSrc = card.dataset.video;
+    if (vidSrc) {
+      if (vid.src !== vidSrc) {
+        vid.src = vidSrc;
+        vid.load();
       }
-      panel.classList.add('show');
-    }
-    function hide() {
-      panel.classList.remove('show');
+      vid.style.display = 'block';
+      vid.play().catch(() => {});
+    } else {
       vid.pause();
+      vid.style.display = 'none';
     }
-  
-    /* bind once; decide inside the handler which path to run */
-    document.querySelectorAll('.project-card').forEach(card => {
-      /* — hover / focus — */
-      card.addEventListener('mouseenter', () => {
-        if (wideEnough()) show(card);
-      });
-      card.addEventListener('focus', () => {
-        if (wideEnough()) show(card);
-      });
-      card.addEventListener('mouseleave', () => {
-        if (wideEnough()) hide();
-      });
-      card.addEventListener('blur', () => {
-        if (wideEnough()) hide();
-      });
-  
-      /* — tap / click — */
-      card.addEventListener('click', () => {
-        if (!wideEnough()) {
-          panel.classList.contains('show') ? hide() : show(card);
-        }
-      });
-    });
-  
-    /* close button & backdrop */
-    closeBtn.addEventListener('click', hide);
-    panel.addEventListener('click', e => {
-      if (e.target === panel) hide();
+    panel.classList.add('show');
+  }
+
+  function hide() {
+    panel.classList.remove('show');
+    vid.pause();
+  }
+
+  document.querySelectorAll('.project-card').forEach(card => {
+    function maybeShow() {
+
+      if (isWide()) show(card);
+    }
+    function maybeHide() {
+      if (isWide()) hide();
+    }
+    card.addEventListener('mouseenter', maybeShow);
+    card.addEventListener('focus', maybeShow);
+    card.addEventListener('mouseleave', maybeHide);
+    card.addEventListener('blur', maybeHide);
+
+
+    card.addEventListener('click', () => {
+      if (!isWide()) {
+        panel.classList.contains('show') ? hide() : show(card);
+      }
     });
   });
-  
+
+  closeBtn.addEventListener('click', hide);
+  panel.addEventListener('click', e => {
+    if (e.target === panel) hide();
+  });
+
+  function handleMediaChange(e) {
+    if (!e.matches && panel.classList.contains('show')) {
+      hide();
+    }
+  }
+  if (typeof mediaQuery.addEventListener === 'function') {
+    mediaQuery.addEventListener('change', handleMediaChange);
+  } else if (typeof mediaQuery.addListener === 'function') {
+    mediaQuery.addListener(handleMediaChange);
+  }
+});
