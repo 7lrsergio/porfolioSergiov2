@@ -1,15 +1,23 @@
+*{
+  font-family: "Goldman", sans-serif;
+  font-weight: lighter;
+}
 /* hide the system cursor on desktops */
 @media (hover:hover) and (pointer:fine){
   body{ cursor:none; }
 }
 
 
+.bold{
+  font-weight: 800;
+
+}
 
 :root{
   /* default (idle) look */
   --cursor-ring-color:#FFF8E8;
   --cursor-dot-color:#FFF8E8;
-  --cursor-size:55px;          /* ring Ø when idle */
+  --cursor-size:75px;          /* ring Ø when idle */
   --cursor-font-size:15px;     /* letter size idle */
 }
 
@@ -109,6 +117,7 @@ display: block!important;
   }
   
   .name{
+
     align-self:flex-start;   /* this one hugs the left edge of .container */
     margin:.25em 0;
     font-size:2.5rem;
@@ -244,7 +253,7 @@ display: block!important;
 .cards-wrapper{
   overflow: visible;     /* establishes the containing block */
   height: 40rem;
-  line-height: 3rem;
+  line-height: 4rem;
 }
 
   
@@ -259,10 +268,52 @@ display: block!important;
   
 }
 
+.doubleProject{
+  padding: 1rem 0rem 1rem 0rem;
+  margin: none;
+  line-height: 0.4rem;
+}
+
+.doublePtext{
+  margin: none;
+  padding: none;
+}
+
+/* Title text */
+#prevTitle {
+  font-size: 1.8rem;    /* bigger title */
+  line-height: 1.3;     /* space between lines */
+  letter-spacing: 0.5px;
+  margin: 0rem 0rem 0.2rem 0rem;
+
+}
+
+/* Description text */
+#prevDesc {
+  font-size: 1.1rem;      /* normal body size */
+  line-height: 1.4;     /* more readable spacing */
+  color: #d7d1c1;       /* softer color */
+  margin-bottom: 0.75rem;
+}
+
+/* Tools list */
+#prevTools {
+  font-size: 1rem;    /* a little smaller */
+  line-height: 1;
+  color: #aaa;
+  font-style: italic;
+}
+
+#prevVid, #prevImg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: none; /* JS will toggle */
+}
 
 
 .project-card::after{
-  /* ✨ pull the text from attributes ✨ */
+
   content:
     attr(data-title)  "\A"          /*  \\A = line break  */
     attr(data-desc)   "\A"
@@ -293,16 +344,17 @@ display: block!important;
 
 
   
-/* 1 — keep this rule only for the tiny per‑card hover videos (if you still use them) */
+/* 1 — keep this rule only for the tiny per‑card hover videos (if you still use them) */
 /* --- fixed panel itself --- */
 .preview{
-  position:fixed; top:20%; right:10%;
-  width:23rem;                  /* shrink panel */
+  position:fixed; left:10%;
+  width:37rem;                /* shrink panel */
   border-radius:12px; overflow:hidden;
   background:#071108;
   opacity:0; 
   transition:opacity .25s, transform .25s;
   z-index:1000;
+  align-self: center;
 }
 .preview.show{ opacity:1; transform:none; }
 
@@ -402,7 +454,7 @@ body.scrollbars-always .filter::-webkit-scrollbar-thumb{
  }
 
 .about-container{
-  width:70%
+  width:80%
 }
 
 .img-smallcontainer{
@@ -458,14 +510,14 @@ body.scrollbars-always .filter::-webkit-scrollbar-thumb{
 }
 
  .texts{
-  width: 85%;
+  width: 95%;
   padding-top: 1rem;
   padding-left: 3rem;
   text-align: left;
   position:relative;         
   display: inline-block;
   min-height:4rem;           /* prevents layout shift */
-  font-size: 1.2rem;
+  font-size: 1.1rem;
   line-height: 1.4;
 }
 
@@ -695,7 +747,8 @@ display: none;
 
 .title-skills{
   color: #FFF8E8;
-  font-size: 2.5rem;
+  font-size: 2rem;
+  font-weight: 200;
   padding-top: 2rem;
   margin: 0px;
 }
@@ -750,7 +803,7 @@ li{
 ============================================================
 ============================================================ */
 
-@media (max-width: 1068px) {
+@media (max-width: 1024px) {
 
   .about-title{
     color: #FFF8E8;
@@ -800,6 +853,7 @@ min-width: 11rem;
   .texts{
     min-width: 18rem;
     padding-left: 0;
+    text-align: center;
   }
   
   .options{
@@ -931,9 +985,38 @@ min-width: 11rem;
   opacity:.9;
 }
 .preview{
-  top: 15%;
-  right:auto;
-justify-self: center;
+  justify-self: center;
+  bottom: 7rem;
+  left: auto;
+  width:35rem;
+}
+
+#prevTitle {
+  font-size: 1.2rem;    /* bigger title */
+  line-height: 1.3;     /* space between lines */
+  margin: 0rem 0rem 0.1rem 0rem;
+  padding: 0rem 0rem 0rem 1rem;
+
+}
+
+/* Description text */
+#prevDesc {
+  font-size: 0.9rem;      /* normal body size */
+  line-height: 1.4;     /* more readable spacing */
+  color: #d7d1c1;       /* softer color */
+  margin-bottom: 0.75rem;
+  margin: 0rem 0rem 0.1rem 0rem;
+  padding: 0rem 0.8rem 0rem 0.8rem;
+}
+
+/* Tools list */
+#prevTools {
+  font-size: 0.8rem;    /* a little smaller */
+  line-height: 1;
+  color: #aaa;
+  font-style: italic;
+  margin: 0rem 0rem 0.8rem 0rem;
+  padding: 0rem 0.8rem 0rem 0.8rem;
 }
 
 .closePreview{
