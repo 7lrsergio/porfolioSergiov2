@@ -8,8 +8,8 @@
   const defaultSize = getComputedStyle(follower)
                         .getPropertyValue('--cursor-size').trim();
   const defaultFont = getComputedStyle(cursorText).fontSize;
-  const hoverSize   = '65px';
-  const hoverFont   = '23px';
+  const hoverSize   = '90px';
+  const hoverFont   = '20px';
 
   const defaultMsg = cursorText.textContent;
   if (!matchMedia('(hover:hover) and (pointer:fine)').matches) return;
